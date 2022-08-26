@@ -43,12 +43,13 @@
                        </div>
                    </div>
                    <ul class="task-actions">
-
-                       <li>
-                           <a href="{{ route('chats.index', ['problem' => $item->id]) }}">
-                               <i class="icon-message text-primary"></i>
-                           </a>
-                       </li>
+                       @if (in_array(auth()->user()->type, ['user', 'employee']))
+                           <li>
+                               <a href="{{ route('chats.index', ['problem' => $item->id]) }}">
+                                   <i class="icon-message text-primary"></i>
+                               </a>
+                           </li>
+                       @endif
                        <li>
                            <a href="{{ route('problems.chang-important', $item->id) }}"
                                class="star {{ $item->important == 1 ? 'active' : '' }}" data-toggle="tooltip"

@@ -1,7 +1,7 @@
 <header class="header">
     <div class="logo-wrapper">
         <a href="{{ route('home') }}" class="logo">
-            <img src="images/logo.png" alt="Wafi Admin Dashboard">
+            <img src="images/logo.png" alt="">
         </a>
 
     </div>

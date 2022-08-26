@@ -101,7 +101,12 @@ class ProblemsController extends ResponseController
         $data['user_id'] = auth()->user()->id;
         $data['problem_number'] = time();
         $problem = Problem::create($data);
-        $items = Problem::Recent()->paginate(12);
+        $items = Problem::Recent();
+
+        if (auth()->user()->type == 'user') {
+            $items = $items->where('user_id', auth()->user()->id);
+        }
+        $items = $items->paginate(12);
 
         return $this->successResponse(
             ['view'=>view(
@@ -140,7 +145,14 @@ class ProblemsController extends ResponseController
         $data = $request->all();
         $problem->update($data);
 
-        $items = Problem::Recent()->paginate(12);
+
+        $items = Problem::Recent();
+
+        if (auth()->user()->type == 'user') {
+            $items = $items->where('user_id', auth()->user()->id);
+        }
+        $items = $items->paginate(12);
+
 
         return $this->successResponse(
             ['view'=>view(

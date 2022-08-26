@@ -7,6 +7,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProblemsController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommonProblemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('chats', ChatsController::class);
     Route::resource('problems', ProblemsController::class);
+    Route::resource('common_problems', CommonProblemsController::class);
+    //common_problems
 
     Route::get(
         'problems/change-status/{id}',

@@ -18,6 +18,14 @@ class ChatsController extends Controller
         $problem = null;
         $search = $request->search;
         $problem = $request->problem;
+        if (auth()->user()->type == 'user') {
+            $items = $items->whereHas(
+                'problem',
+                function ($q) {
+                    $q->where('user_id', auth()->user()->id);
+                }
+            );
+        }
         if (isset($search) && $search != '') {
             $items = $items->where(
                 function ($q) use ($search) {

@@ -95,12 +95,12 @@ class CategoriesController extends ResponseController
         );
     }
 
-    public function update(Request $request, category $category)
+    public function update(Request $request, Category $category)
     {
         $validator = Validator::make($request->all(), [
             'title' => [
                 'required',
-                'unique:categories,title'
+                'unique:categories,title,id'.$category->id
             ],
         ]);
         if ($validator->fails()) {
