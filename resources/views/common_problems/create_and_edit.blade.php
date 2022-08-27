@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tags">كلمات :</label>
-                        <input required value="{{ !empty($problem->id) ? $problem->tags : '' }}" name="tags"
+                        <input  value="{{ !empty($problem->id) ? $problem->tags : '' }}" name="tags"
                             type="text" data-role="tagsinput" class="form-control" id="tags">
                         @if ($errors->has('tags'))
                             <span class="invalid-feedback">{{ $errors->first('tags') }}</span>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <label for="file">رفع ملف الحل:</label>
-                        <input required name="file" type="file" class="form-control" id="file"
+                        <input  name="file" type="file" class="form-control" id="file"
                             accept=".doc,.docx,.pdf">
                         @if ($errors->has('file'))
                             <span class="invalid-feedback">{{ $errors->first('file') }}</span>

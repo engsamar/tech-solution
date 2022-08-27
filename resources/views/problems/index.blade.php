@@ -31,7 +31,7 @@
                                 <!-- Row start -->
                                 <div class="row no-gutters justify-content-center">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                        <section class="task-list" id="items">
+                                        <section class="task-list" id="data">
                                             <!-- Task #1 -->
                                             @if (!empty($items) && count($items) > 0)
                                                 @include('problems.items')
@@ -150,7 +150,7 @@
                                 $('#status option[value="0"]')
                                     .attr("selected", "selected");
                                 $('#important').prop('checked', false);
-                                $('#items').html(response.data.view)
+                                $('#data').html(response.data.view)
 
                                 notes.show(
                                     response.message, {

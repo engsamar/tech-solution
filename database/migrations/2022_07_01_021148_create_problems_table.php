@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->id();
 
             $table->string('title')->nullable();
+            $table->string('problem_number')->nullable();
+
             $table->longText('description')->nullable();
             $table->string('tags')->nullable();
             $table->foreignId('category_id')->nullable()->references('id')

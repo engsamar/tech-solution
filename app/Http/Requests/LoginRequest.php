@@ -13,7 +13,7 @@ class LoginRequest extends Request
                 return [
                     // CREATE ROLES
                     'email' => 'required',
-                    'password' => 'required|min:8',
+                    'password' => 'required|min:6',
                 ];
             }
             // UPDATE

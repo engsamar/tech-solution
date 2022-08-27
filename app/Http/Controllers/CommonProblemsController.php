@@ -83,7 +83,7 @@ class CommonProblemsController extends ResponseController
         if ($request->hasFile('file')) {
             $image = $request->file('file');
             $imageName = time().$image->hashName();
-            $request->image->move(public_path('images/common_problem/files'), $imageName);
+            $request->file->move(public_path('images/common_problem/files'), $imageName);
             $data['file'] = 'images/common_problem/files/' . $imageName;
         }
 
@@ -160,9 +160,9 @@ class CommonProblemsController extends ResponseController
         );
     }
 
-    public function destroy(CommonProblem $common_problem)
+    public function destroy( $common_problem)
     {
-        $common_problem->delete();
+        CommonProblem::find($common_problem)->delete();
         return redirect()->route('common_problems.index')->with('message', 'تم حذف البيانات بنجاح');
     }
 }
