@@ -47,6 +47,8 @@
                     </a>
 
                 </li>
+@endif
+@if (in_array(auth()->user()->type, ['admin']))
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('users.*') ? 'active-page' : '' }}"
